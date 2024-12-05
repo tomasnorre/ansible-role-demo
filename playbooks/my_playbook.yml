@@ -1,0 +1,14 @@
+---
+- name: Set variables
+  hosts: all
+  vars:
+    ansible_remote_tmp: /tmp/.ansible/tmp
+
+- name: Test new role from within this playbook
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Testing role
+      ansible.builtin.include_role:
+        name: tomasnorre.demo
+        tasks_from: main.yml

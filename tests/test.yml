@@ -1,0 +1,4 @@
+- name: Test Demo Role
+  hosts: all
+  roles:
+    - tomasnorre.demo

@@ -1,18 +1,16 @@
 ---
-role_name_check: 1
-dependency:
-  name: galaxy
-  options:
-    ignore-errors: true
 driver:
   name: docker
+
 platforms:
   - name: instance
-    image: "ubuntu:24.04"
-    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    image: ubuntu:20.04
     privileged: true
-    pre_build_image: true
+
 provisioner:
   name: ansible
   playbooks:
-    converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+    converge: ../../tests/test.yml
+
+verifier:
+  name: ansible

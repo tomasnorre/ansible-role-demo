@@ -1,4 +1,11 @@
 ---
-- name: Task is running from within the role
-  ansible.builtin.debug:
-    msg: "This is a task from tomasnorre.demo role"
+- name: Install nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: latest
+    update_cache: yes
+
+- name: Start nginx
+  service:
+    name: nginx
+    state: started

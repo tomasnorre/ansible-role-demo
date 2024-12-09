@@ -1,0 +1,10 @@
+---
+- name: Verify
+  hosts: all
+  become: no
+  gather_facts: no
+
+  tasks:
+    - name: Check Nginx on port 80
+      ansible.builtin.wait_for:
+        port: 80
